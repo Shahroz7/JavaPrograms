@@ -13,7 +13,6 @@ public class FuncInter {
 		MultipleInter mi= (a,b)->a*b;
 		System.out.println(mi.multiply(4, 6));
 		
-		
 	}
 
 }

@@ -1,6 +1,6 @@
-package PractiseSet;
+package Sorting_Searching;
 
-public class MergeSort2 {
+public class MergeSort {
 
 public static void main(String[]args) {
 		

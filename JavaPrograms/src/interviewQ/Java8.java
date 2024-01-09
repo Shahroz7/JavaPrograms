@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -48,12 +49,11 @@ public class Java8 {
 				new User("John", 33),
 				new User("Robert", 27),
 				new User("Mark", 26),
-				new User("John",35),
-				new User("Brandon", 42)));
+				new User("Mathew",35),
+				new User("Brandon", 45)));
 
 		//Sort using comparator
-		List<User> sortedList = userList.stream().sorted(Comparator.comparing(User::getAge))
-				.collect(Collectors.toList());
+		List<User> sortedList = userList.stream().sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList());
 		sortedList.forEach(System.out::println);
 
 		//group by name
@@ -73,18 +73,56 @@ public class Java8 {
 				.findFirst();
 		System.out.println(nth.get());
 
+		 
 		
-		//max/min salary from each department
-		Map<String, Optional<User>> maxAgeFromEachName =
-				userList.stream().collect(Collectors.groupingBy(User::getName,
-						Collectors.reducing(BinaryOperator.minBy(Comparator.comparing(User::getAge)))
-						));
+		//////Sliding ages
+		List<User> slidingAges = userList.stream().skip(1).limit(2).collect(Collectors.toList());
+		System.out.println(slidingAges);
 		
-		System.out.println("Max by each department");
-		maxAgeFromEachName.forEach((Key, Value)->{
-		System.out.println(Key+"'"+Value);});
+		
+		//////Name concatenation
+		List<String> nameList = userList.stream().map(emp ->emp.getName()).collect(Collectors.toList());
+		String names = nameList.stream().map(name -> name.toUpperCase()).collect(Collectors.joining("~"));
+		System.out.println(names);
+		
+		
+		System.out.println("Get Max, Min, Count, Sum, Avg");
+		/////Max, Min, Count, Sum, Avg
+		List<Integer> listAges = userList.stream().map(emp -> emp.getAge()).collect(Collectors.toList());
+		IntSummaryStatistics summary = listAges.stream().mapToInt(x -> x).summaryStatistics();
+		
+		System.out.println("Average: "+summary.getAverage());
+		System.out.println("Count: "+summary.getCount());
+		System.out.println("Max: "+summary.getMax());
+		System.out.println("Min: "+summary.getMin());
+		System.out.println("Sum: "+summary.getSum());
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		System.out.print("---------------xxxx----------------");
+		System.out.println("----------------------------------");
+		
+		//max/min age or salary from each department
+				Map<String, Optional<User>> maxAgeFromEachName =
+						userList.stream().collect(Collectors.groupingBy(User::getName,
+								Collectors.reducing(BinaryOperator.minBy(Comparator.comparing(User::getAge)))
+								));
+				
+				System.out.println("Max by each department");
+				maxAgeFromEachName.forEach((Key, Value)->{
+				System.out.println(Key+"'"+Value);});
 		
 	}
+	
 
 }
 
