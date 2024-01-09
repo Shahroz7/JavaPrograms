@@ -1,4 +1,4 @@
-package PractiseSet;
+package Sorting_Searching;
 
 public class QuickSort {
 
