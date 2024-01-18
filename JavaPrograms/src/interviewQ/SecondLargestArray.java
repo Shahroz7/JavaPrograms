@@ -19,7 +19,7 @@ public class SecondLargestArray {
 		}
 
 		int c = a[a.length - 2];
-		int d = a[a.length-1];
+		int d = a[a.length - 1];
 		System.out.println(c);
 		System.out.println(d);
 	}

@@ -1,4 +1,4 @@
-package DSA_Recursions;
+package Recursion_DP;
 
 //Using 2-pointer
 public class ContainerWithMostWater {
