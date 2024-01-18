@@ -1,4 +1,4 @@
-package DSA_Recursions;
+package Recursion_DP;
 
 //Greedy
 public class JumpGame {
