@@ -1,4 +1,4 @@
-package AdvanceSet;
+package Arrays;
 
 public class SortZeroandOne {
 

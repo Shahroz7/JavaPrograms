@@ -1,4 +1,4 @@
-package AdvanceSet;
+package Arrays;
 
 import java.util.Arrays;
 
