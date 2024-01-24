@@ -1,7 +1,5 @@
 package Recursion_DP;
 
-import java.util.Arrays;
-
 public class KnapSack01 {
 
 	public static void main(String[] args) {
@@ -14,7 +12,7 @@ public class KnapSack01 {
 	}
 
 	static int knapsack(int[] weight, int[] value, int n, int maxWeight) {
-		return solve(weight, value, n-1, maxWeight);
+		return solve(weight, value, n - 1, maxWeight);
 	}
 
 	private static int solve(int[] weight, int[] value, int i, int maxWeight) {
