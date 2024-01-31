@@ -1,7 +1,6 @@
 package Trees;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 public class BinaryTree {
 
@@ -59,35 +58,35 @@ public class BinaryTree {
 		System.out.println(root.data);
 	}
 
-//    Level order using Stack
-//    public void iterativePreOrder(TreeNode root) {
-//        Stack<TreeNode> stack = new Stack<>();
-//        stack.push(root);
-//        
-//		  while (!stack.isEmpty()) {
-//            TreeNode temp = stack.pop();
-//            System.out.print(temp.data);
-//            if (temp.right != null)
-//                stack.push(temp.right);
-//            if (temp.left != null)
-//                stack.push(temp.left);
-//        }
-//    }
+   // Level order using Stack
+    public void iterativePreOrder(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        
+		  while (!stack.isEmpty()) {
+            TreeNode temp = stack.pop();
+            System.out.print(temp.data);
+            if (temp.right != null)
+                stack.push(temp.right);
+            if (temp.left != null)
+                stack.push(temp.left);
+        }
+    }
 
-	public void levelOrder() {
-		Queue<TreeNode> q = new LinkedList<>();
-		q.offer(root);
-
-		while (!q.isEmpty()) {
-			TreeNode temp = q.poll();
-			System.out.println(temp.data);
-			if (temp.left != null)
-				q.offer(temp.left);
-			if (temp.right != null)
-				q.offer(temp.right);
-		}
-		return;
-	}
+//	public void levelOrder() {
+//		Queue<TreeNode> q = new LinkedList<>();
+//		q.offer(root);
+//
+//		while (!q.isEmpty()) {
+//			TreeNode temp = q.poll();
+//			System.out.println(temp.data);
+//			if (temp.left != null)
+//				q.offer(temp.left);
+//			if (temp.right != null)
+//				q.offer(temp.right);
+//		}
+//		return;
+//	}
 
 	int countOfNodes(TreeNode root) {
 		if (root == null)
@@ -133,7 +132,7 @@ public class BinaryTree {
 		tree.postOrder(tree.root);
 		// tree.iterativePreOrder(tree.root);
 		System.out.println("Level order");
-		tree.levelOrder();
+		tree.iterativePreOrder(tree.root);
 		System.out.println("Count of Nodes");
 		System.out.println(tree.countOfNodes(tree.root));
 		System.out.println("Sum of Nodes");
